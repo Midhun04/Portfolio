@@ -70,7 +70,7 @@ function ResumeGroup({
 }
 
 export function Resume() {
-  const { education, experience } = portfolio;
+  const { education, experience, certifications } = portfolio;
 
   return (
     <section id="resume" className="section scroll-mt-8">
@@ -89,6 +89,12 @@ export function Resume() {
           </Reveal>
           <Reveal delayMs={100}>
             <ResumeGroup title="Experience" items={experience} />
+          </Reveal>
+        </div>
+
+        <div className="mt-16">
+          <Reveal delayMs={160}>
+            <ResumeGroup title="Certifications" items={certifications} />
           </Reveal>
         </div>
       </div>

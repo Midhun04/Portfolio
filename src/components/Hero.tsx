@@ -46,7 +46,7 @@ export function Hero() {
                 alt={profile.name}
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-[center_18%]"
                 sizes="(max-width: 1024px) 90vw, 520px"
               />
             </div>

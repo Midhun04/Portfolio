@@ -15,9 +15,9 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Rivera — Full Stack Developer",
+  title: "Midhun Das N K — Full Stack Developer",
   description:
-    "Personal portfolio of Alex Rivera, a full stack developer building reliable web products.",
+    "Personal portfolio of Midhun Das N K, a full stack developer building web products with React, Next.js, Node.js, and GraphQL.",
 };
 
 export default function RootLayout({

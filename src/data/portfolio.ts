@@ -37,18 +37,17 @@ export type ResumeItem = {
 
 export const portfolio = {
   profile: {
-    name: "Alex Rivera",
-    shortName: "Alex.",
+    name: "Midhun Das N K",
+    shortName: "Midhun.",
     role: "Full Stack Developer",
     greeting: "Hello, My Name Is",
     tagline:
-      "From a remote studio, I have rich experience in full stack development, interested to learn more about building products, designing systems, and solving hard problems. I love to talk with you about our unique.",
-    yearsExperience: 4,
-    projectsCompleted: 28,
-    locationLabel: "Remote Worldwide",
+      "Based in Kerala, I build full stack products with React, Next.js, Node.js, and GraphQL — from WhatsApp commerce and rewards platforms to streaming apps. I like shipping reliable features and working closely with design and product teams.",
+    yearsExperience: 1,
+    projectsCompleted: 3,
+    locationLabel: "Kerala, India",
     cvUrl: "#",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+    image: "/profile.png",
   },
   nav: [
     { label: "Home", href: "#home" },
@@ -59,9 +58,8 @@ export const portfolio = {
     { label: "Contact", href: "#contact" },
   ] satisfies NavLink[],
   socials: [
-    { label: "GitHub", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Email", href: "mailto:hello@alexrivera.dev" },
+    { label: "GitHub", href: "https://github.com/midhun04" },
+    { label: "Email", href: "mailto:midhundas3110@gmail.com" },
   ],
   services: [
     {
@@ -69,7 +67,7 @@ export const portfolio = {
       title: "Web Development",
       subtitle: "Next.js & React",
       description:
-        "Develop frontend experiences with React / Next.js and pair them with solid backend foundations.",
+        "Build responsive product UIs with React, Next.js, TypeScript, and Tailwind CSS — from merchant dashboards to customer-facing apps.",
       icon: "web",
     },
     {
@@ -77,7 +75,7 @@ export const portfolio = {
       title: "Backend Development",
       subtitle: "APIs & Data",
       description:
-        "Build typed APIs, auth flows, and data models that stay clear and reliable as products grow.",
+        "Design REST and GraphQL APIs, data models, and backend logic with Node.js, Prisma, PostgreSQL, and MongoDB.",
       icon: "backend",
     },
     {
@@ -85,163 +83,138 @@ export const portfolio = {
       title: "Product Engineering",
       subtitle: "End to end",
       description:
-        "Own features from brief to ship — scoping, implementation, polish, and maintainable handoff.",
+        "Own features across the stack — multi-tenant platforms, WhatsApp commerce, bookings, payments, and admin tools.",
       icon: "product",
     },
   ] satisfies Service[],
   skills: [
     {
-      name: "TypeScript",
-      level: 90,
-      blurb:
-        "Typed application code across frontend and Node services for safer refactors.",
-    },
-    {
       name: "React / Next.js",
       level: 88,
       blurb:
-        "App Router, server components, and performant client UX for modern web apps.",
+        "App Router, TypeScript, and Tailwind for dashboards, storefronts, and multi-app product surfaces.",
     },
     {
-      name: "Node.js",
+      name: "TypeScript",
       level: 85,
-      blurb: "API design, background jobs, and integration layers that stay maintainable.",
+      blurb:
+        "Typed application code across frontend and Node services for safer refactors and clearer APIs.",
     },
     {
-      name: "PostgreSQL",
-      level: 80,
-      blurb: "Schema design, queries, and pragmatic relational data modeling.",
+      name: "Node.js & GraphQL",
+      level: 84,
+      blurb:
+        "API design, GraphQL schemas, and Express services that power live product features.",
     },
     {
-      name: "UI Engineering",
+      name: "PostgreSQL & Prisma",
       level: 82,
-      blurb: "Layout systems, motion, and accessible interaction patterns.",
+      blurb:
+        "Relational modeling, Prisma workflows, and data layers for multi-tenant commerce and rewards systems.",
     },
     {
-      name: "DevOps basics",
-      level: 70,
-      blurb: "CI, preview deploys, and shipping to modern hosting platforms.",
+      name: "Tailwind CSS",
+      level: 80,
+      blurb:
+        "Layout systems and polished UI for responsive web apps across merchant and customer experiences.",
+    },
+    {
+      name: "Python / Django",
+      level: 72,
+      blurb:
+        "Backend development with Python and Django alongside Node services when the stack calls for it.",
     },
   ] satisfies Skill[],
-  projectCategories: ["All", "E-Commerce", "Web Development", "AI"] as const,
+  projectCategories: ["All", "E-Commerce", "Platform", "Streaming"] as const,
   projects: [
     {
-      id: "northline",
-      title: "Northline Commerce",
+      id: "peedi",
+      title: "PEEDI",
       category: "E-Commerce",
       description:
-        "Build on Next.js, Stripe, PostgreSQL. Product listing, cart, checkout, orders, and admin controls.",
-      tags: ["Next.js", "Stripe", "PostgreSQL"],
+        "Multi-tenant WhatsApp commerce and automation platform. Store catalog sync, in-chat checkout, booking with Google Calendar, a visual flow builder, and CRM routing.",
+      tags: ["Next.js", "GraphQL", "Prisma", "PostgreSQL"],
       image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      href: "#",
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
     },
     {
-      id: "folio-kit",
-      title: "Folio Kit",
-      category: "Web Development",
+      id: "llyk",
+      title: "LLYK",
+      category: "Platform",
       description:
-        "Template-driven portfolio builder — accounts, content editing, and deployable static output.",
-      tags: ["React", "Node", "Auth"],
-      image:
-        "https://images.unsplash.com/photo-1498050108023-c8199c33ba4b?auto=format&fit=crop&w=800&q=80",
-      href: "#",
-    },
-    {
-      id: "signal-api",
-      title: "Signal Desk",
-      category: "AI",
-      description:
-        "Assistant workspace with ingestion, ranking, and dashboards for product teams.",
-      tags: ["TypeScript", "AI", "Redis"],
-      image:
-        "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80",
-      href: "#",
-    },
-    {
-      id: "clearpath",
-      title: "Clearpath CRM",
-      category: "Web Development",
-      description:
-        "Lightweight CRM for freelancers: contacts, pipelines, and activity timelines.",
-      tags: ["Next.js", "Prisma", "Tailwind"],
+        "Rewards-as-a-service platform with merchant, participant, and admin apps. Digital wallet, OCR task verification, Razorpay payments, and fraud-prevention tools.",
+      tags: ["Next.js", "GraphQL", "Prisma", "Razorpay"],
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      href: "#",
     },
     {
-      id: "pulseboard",
-      title: "Pulseboard",
-      category: "Web Development",
+      id: "ott",
+      title: "OTT Platform",
+      category: "Streaming",
       description:
-        "Internal ops dashboard for status, deploy history, and service health at a glance.",
-      tags: ["React", "Charts", "WebSockets"],
+        "Streaming product with a React and Next.js UI, content discovery, watchlists, profiles, and a review and rating system on Prisma and MongoDB.",
+      tags: ["React", "Next.js", "Prisma", "MongoDB"],
       image:
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-      href: "#",
-    },
-    {
-      id: "vision-lab",
-      title: "Vision Lab",
-      category: "AI",
-      description:
-        "Computer-vision experiments for pointer control and gesture shortcuts.",
-      tags: ["Python", "OpenCV"],
-      image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
-      href: "#",
+        "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=800&q=80",
     },
   ] satisfies Project[],
   education: [
     {
       id: "edu-1",
-      role: "B.S. Computer Science",
-      org: "State University",
-      period: "2018 — 2022",
-      detail:
-        "Focused on software engineering, databases, and human–computer interaction.",
+      role: "Master of Computer Applications",
+      org: "MES College of Engineering, Kuttippuram · KTU University",
+      period: "Oct 2022 — May 2024",
+      detail: "CGPA 7.0. Postgraduate study in computer applications, software engineering, and applied computing.",
     },
     {
       id: "edu-2",
-      role: "Full Stack Intensive",
-      org: "Dev Lab Institute",
-      period: "2022",
-      detail:
-        "Project-based program covering modern web stacks, APIs, and deployment.",
+      role: "Bachelor of Computer Applications",
+      org: "MES Keeveeyem College, Valanchery · University of Calicut",
+      period: "Jun 2019 — Jul 2022",
+      detail: "CGPA 6.5. Undergraduate foundation in programming, databases, and application development.",
+    },
+    {
+      id: "edu-3",
+      role: "Plus Two · Biology Science",
+      org: "MES HSS, Valanchery",
+      period: "Jun 2017 — Mar 2019",
+      detail: "Completed higher secondary education with 85%.",
     },
   ] satisfies ResumeItem[],
   experience: [
     {
       id: "exp-1",
       role: "Full Stack Developer",
-      org: "Horizon Labs",
-      period: "2023 — Present",
+      org: "Wecypher Creative Consultants",
+      period: "Mar 2025 — Present",
       detail:
-        "Shipping product features across the stack, improving performance, and mentoring on frontend standards.",
+        "Working on multiple live products with React.js, Next.js, and related web technologies. Building and maintaining REST APIs, databases, and backend logic, and collaborating with frontend developers, designers, and project managers to ship features on time.",
+    },
+  ] satisfies ResumeItem[],
+  certifications: [
+    {
+      id: "cert-1",
+      role: "Cloud Computing",
+      org: "NPTEL · IIT Kharagpur",
+      period: "Certified",
+      detail:
+        "NPTEL certification covering cloud models, virtualization, and distributed computing fundamentals.",
     },
     {
-      id: "exp-2",
-      role: "Frontend Engineer",
-      org: "Brightline Studio",
-      period: "2022 — 2023",
+      id: "cert-2",
+      role: "Introduction to Internet of Things",
+      org: "NPTEL · IIT Kharagpur",
+      period: "Certified",
       detail:
-        "Built client sites and design systems; partnered with design on interaction and accessibility.",
-    },
-    {
-      id: "exp-3",
-      role: "Freelance Developer",
-      org: "Independent",
-      period: "2021 — 2022",
-      detail:
-        "Delivered MVPs and landing experiences for early-stage founders and small teams.",
+        "NPTEL certification on IoT architecture, connected devices, and application-layer concepts.",
     },
   ] satisfies ResumeItem[],
   contact: {
     heading: "Let's Talk About Ideas",
-    address: "Remote · Prefer async first",
-    freelance: "Available Right Now",
-    email: "hello@alexrivera.dev",
-    phone: "+1 (555) 010-2048",
+    address: "Kerala, India",
+    freelance: "Open to opportunities",
+    email: "midhundas3110@gmail.com",
+    phone: "+91 92070 83110",
   },
 };
 

@@ -32,6 +32,9 @@ export function Nav() {
                 key={social.label}
                 href={social.href}
                 className="text-[1.1rem] text-title transition-colors duration-300 hover:text-primary"
+                {...(social.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
               >
                 {social.label}
               </a>
@@ -92,6 +95,9 @@ export function Nav() {
                 href={social.href}
                 className="text-title transition-colors hover:text-primary"
                 onClick={() => setOpen(false)}
+                {...(social.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
               >
                 {social.label}
               </a>

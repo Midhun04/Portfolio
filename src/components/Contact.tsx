@@ -74,6 +74,12 @@ export function Contact() {
     const nextErrors = validate(form);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
+
+    const subject = encodeURIComponent(form.subject);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
+    );
+    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
     setSent(true);
     setForm(initial);
   }
@@ -144,8 +150,14 @@ export function Contact() {
               <div className="card card--padded">
                 <p className="font-script text-3xl text-title">Message ready</p>
                 <p className="mt-3 text-sm text-text">
-                  Form UI only for now — wire this to your email or API when you
-                  share real contact details.
+                  Thanks for reaching out. You can also email me directly at{" "}
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="text-primary hover:underline"
+                  >
+                    {contact.email}
+                  </a>
+                  .
                 </p>
                 <button
                   type="button"

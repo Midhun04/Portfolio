@@ -16,6 +16,9 @@ export function Footer() {
               <a
                 href={social.href}
                 className="text-sm font-medium text-title transition-colors hover:text-primary"
+                {...(social.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
               >
                 {social.label}
               </a>
