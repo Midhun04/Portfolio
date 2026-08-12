@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { portfolio } from "@/data/portfolio";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SocialIcon } from "@/components/SocialIcon";
+import { HeroEyes } from "@/components/HeroEyes";
 
 export function Nav() {
   const { profile, nav, socials } = portfolio;
@@ -35,10 +36,12 @@ export function Nav() {
       <div className="mx-auto flex max-w-[1140px] items-center justify-between">
         <a
           href="#home"
-          className="text-[1.5rem] font-bold text-title"
+          className="inline-flex items-center gap-3 text-[1.5rem] font-bold text-title"
+          aria-label={profile.shortName}
           onClick={() => setOpen(false)}
         >
-          {profile.shortName}
+          <HeroEyes />
+          <span>{profile.shortName}</span>
         </a>
 
         <div className="flex items-center gap-4 sm:gap-6">
