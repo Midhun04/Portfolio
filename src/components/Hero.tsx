@@ -29,7 +29,11 @@ export function Hero() {
           </p>
 
           <div className="animate-fade-up animate-delay-4 mt-9 flex flex-wrap items-center gap-x-12 gap-y-6">
-            <a href={profile.cvUrl} className="btn btn--primary">
+            <a
+              href={profile.cvUrl}
+              className="btn btn--primary"
+              download="MidhunDas-CV.pdf"
+            >
               Download CV
             </a>
             <a href="#skills" className="btn--link font-bold">
