@@ -77,9 +77,6 @@ export function Projects() {
                   <p className="mt-4 text-[var(--small-font-size)] leading-relaxed text-text">
                     {project.description}
                   </p>
-                  <a href="#contact" className="link-accent mt-4 inline-block">
-                    See pricing
-                  </a>
                 </article>
               </Reveal>
             </li>

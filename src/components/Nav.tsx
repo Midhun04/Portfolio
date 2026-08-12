@@ -74,10 +74,10 @@ export function Nav() {
       <div
         id="site-menu"
         className={`fixed inset-y-0 right-0 z-[100] flex h-screen overflow-hidden bg-bg-alt transition-all duration-700 ease-[cubic-bezier(0.3,0,0.3,1)] ${
-          open ? "w-full md:w-[min(100%,520px)]" : "w-0"
+          open ? "w-[min(100%,360px)]" : "w-0"
         }`}
       >
-        <nav className="m-auto w-full px-10 py-20 md:px-16" aria-label="Primary">
+        <nav className="m-auto w-full px-8 py-20 md:px-10" aria-label="Primary">
           <ul className="mb-10 space-y-4">
             {nav.map((link) => (
               <li key={link.href}>
