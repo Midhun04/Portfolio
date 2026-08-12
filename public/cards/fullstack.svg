@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255 315" fill="none">
+  <rect width="255" height="315" fill="#000"/>
+  <g opacity="0.9" stroke="#d8d4ce" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- hand holding layered stack / scroll of systems -->
+    <path d="M198 278c-20-40-36-76-40-108-2-14 6-28 18-34l16-8" fill="none"/>
+    <path d="M176 250c-12-30-20-58-18-86" fill="none"/>
+    <path d="M160 268c-8-22-12-42-8-64" fill="none"/>
+    <rect x="72" y="78" width="78" height="108" rx="6" transform="rotate(-8 111 132)"/>
+    <rect x="84" y="70" width="78" height="108" rx="6" transform="rotate(-2 123 124)"/>
+    <rect x="96" y="64" width="78" height="108" rx="6"/>
+    <path d="M110 92h50M110 112h40M110 132h46M110 152h34"/>
+  </g>
+  <g fill="#cfc9c0" opacity="0.55">
+    <circle cx="36" cy="44" r="0.8"/><circle cx="58" cy="30" r="0.6"/><circle cx="80" cy="52" r="0.7"/>
+    <circle cx="200" cy="38" r="0.7"/><circle cx="222" cy="54" r="0.6"/><circle cx="238" cy="42" r="0.5"/>
+    <circle cx="44" cy="110" r="0.6"/><circle cx="28" cy="150" r="0.7"/><circle cx="52" cy="190" r="0.5"/>
+    <circle cx="216" cy="120" r="0.6"/><circle cx="232" cy="160" r="0.7"/><circle cx="208" cy="200" r="0.6"/>
+    <circle cx="40" cy="230" r="0.7"/><circle cx="66" cy="250" r="0.5"/><circle cx="190" cy="240" r="0.6"/>
+    <circle cx="120" cy="40" r="0.5"/><circle cx="148" cy="34" r="0.6"/><circle cx="172" cy="48" r="0.5"/>
+    <circle cx="96" cy="200" r="0.6"/><circle cx="130" cy="220" r="0.5"/>
+  </g>
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.12 0"/>
+      <feBlend in2="SourceGraphic" mode="screen"/>
+    </filter>
+  </defs>
+  <rect width="255" height="315" filter="url(#grain)" opacity="0.35"/>
+</svg>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Jost } from "next/font/google";
+import { Caveat, Instrument_Serif, Jost } from "next/font/google";
 import "./globals.css";
 
 const jost = Jost({
@@ -11,6 +11,12 @@ const caveat = Caveat({
   variable: "--font-caveat",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +37,7 @@ export default function RootLayout({
       lang="en"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${jost.variable} ${caveat.variable} h-full`}
+      className={`${jost.variable} ${caveat.variable} ${instrumentSerif.variable} h-full`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />

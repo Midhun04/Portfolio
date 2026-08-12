@@ -3,12 +3,16 @@ export type NavLink = {
   href: string;
 };
 
+export type ServiceSuit = "diamond" | "spade" | "club";
+
 export type Service = {
   id: string;
   title: string;
   subtitle: string;
   description: string;
-  icon: "web" | "backend" | "product";
+  suit: ServiceSuit;
+  rank?: string;
+  image: string;
 };
 
 export type Skill = {
@@ -65,27 +69,33 @@ export const portfolio = {
   services: [
     {
       id: "web",
-      title: "Web Development",
-      subtitle: "Next.js & React",
+      title: "Frontend",
+      subtitle: "Interfaces that feel fast and clear",
       description:
-        "Build responsive product UIs with React, Next.js, TypeScript, and Tailwind CSS — from merchant dashboards to customer-facing apps.",
-      icon: "web",
+        "Responsive product UIs with React, Next.js, and TypeScript — dashboards, storefronts, and customer-facing apps that stay sharp across devices.",
+      suit: "diamond",
+      rank: "A",
+      image: "/cards/frontend.svg",
     },
     {
       id: "backend",
-      title: "Backend Development",
-      subtitle: "APIs & Data",
+      title: "Backend",
+      subtitle: "APIs, data, and reliable systems",
       description:
-        "Design REST and GraphQL APIs, data models, and backend logic with Node.js, Prisma, PostgreSQL, and MongoDB.",
-      icon: "backend",
+        "REST and GraphQL APIs, solid data models, and backend logic with Node.js, Prisma, and databases built for real product load.",
+      suit: "spade",
+      rank: "A",
+      image: "/cards/backend.svg",
     },
     {
       id: "product",
-      title: "Product Engineering",
-      subtitle: "End to end",
+      title: "Full Stack",
+      subtitle: "Connects flows, states, and scale",
       description:
-        "Own features across the stack — multi-tenant platforms, WhatsApp commerce, bookings, payments, and admin tools.",
-      icon: "product",
+        "End-to-end features across the stack — multi-tenant platforms, WhatsApp commerce, bookings, payments, and the admin tools that run them.",
+      suit: "club",
+      rank: "A",
+      image: "/cards/fullstack.svg",
     },
   ] satisfies Service[],
   skills: [
