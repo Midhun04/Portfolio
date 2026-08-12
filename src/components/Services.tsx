@@ -35,11 +35,7 @@ export function Services() {
     <section id="services" className="section services-section scroll-mt-8">
       <div className="section__inner">
         <Reveal>
-          <SectionHeading
-            eyebrow="What I Do"
-            title="My Services"
-            watermark="Services"
-          />
+          <SectionHeading eyebrow="What I Do" title="My Services" />
         </Reveal>
       </div>
 

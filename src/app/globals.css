@@ -156,22 +156,6 @@ a {
   line-height: 1.1;
 }
 
-.section__watermark {
-  position: absolute;
-  left: 50%;
-  bottom: 3.5rem;
-  transform: translateX(-50%);
-  font-size: clamp(4rem, 12vw, 8rem);
-  font-weight: 700;
-  color: transparent;
-  -webkit-text-stroke: 1px color-mix(in srgb, var(--board-color) 35%, transparent);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-  opacity: 0.55;
-}
-
 .card {
   background: var(--container-color);
   border-radius: 18px;
@@ -430,11 +414,6 @@ a {
 
   .section__header {
     margin-bottom: 2.5rem;
-  }
-
-  .section__watermark {
-    bottom: 1.5rem;
-    font-size: clamp(2.75rem, 16vw, 4.5rem);
   }
 
   .btn {

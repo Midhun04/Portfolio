@@ -76,11 +76,7 @@ export function Resume() {
     <section id="resume" className="section scroll-mt-8">
       <div className="section__inner">
         <Reveal>
-          <SectionHeading
-            eyebrow="Resume"
-            title="My Story"
-            watermark="History"
-          />
+          <SectionHeading eyebrow="Resume" title="My Story" />
         </Reveal>
 
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-12">

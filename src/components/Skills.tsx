@@ -13,7 +13,6 @@ export function Skills() {
           <SectionHeading
             eyebrow="Professional Skills"
             title="My Talent"
-            watermark="Skills"
           />
         </Reveal>
 

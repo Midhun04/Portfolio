@@ -91,11 +91,7 @@ export function Contact() {
     <section id="contact" className="section scroll-mt-8">
       <div className="section__inner">
         <Reveal>
-          <SectionHeading
-            eyebrow="Contact Me"
-            title={contact.heading}
-            watermark="Contact Me"
-          />
+          <SectionHeading eyebrow="Contact Me" title={contact.heading} />
         </Reveal>
 
         <div className="grid gap-14 lg:grid-cols-[5fr_7fr] lg:gap-16">

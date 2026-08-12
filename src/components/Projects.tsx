@@ -19,11 +19,7 @@ export function Projects() {
     <section id="work" className="section scroll-mt-8">
       <div className="section__inner">
         <Reveal>
-          <SectionHeading
-            eyebrow="Portfolio"
-            title="My Cases"
-            watermark="Portfolio"
-          />
+          <SectionHeading eyebrow="Portfolio" title="My Cases" />
         </Reveal>
 
         <Reveal>
