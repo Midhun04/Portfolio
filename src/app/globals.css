@@ -257,6 +257,26 @@ a {
   box-shadow: 5px 5px 0 color-mix(in srgb, var(--primary-color) 22%, transparent);
 }
 
+.hero-reactive {
+  display: block;
+  cursor: default;
+}
+
+.hero-char {
+  display: inline-block;
+  vertical-align: baseline;
+  will-change: transform, font-variation-settings, text-shadow;
+  transition:
+    transform 0.25s var(--transition),
+    text-shadow 0.25s var(--transition),
+    font-variation-settings 0.25s var(--transition),
+    font-weight 0.25s var(--transition);
+}
+
+.hero-char--space {
+  white-space: pre;
+}
+
 .hero-cta {
   display: flex;
   align-items: center;

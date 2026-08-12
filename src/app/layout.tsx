@@ -5,7 +5,6 @@ import "./globals.css";
 const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
 });
 
 const caveat = Caveat({

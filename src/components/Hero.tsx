@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { portfolio } from "@/data/portfolio";
 import { SocialIcon } from "@/components/SocialIcon";
+import { HeroReactiveText } from "@/components/HeroReactiveText";
 
 export function Hero() {
   const { profile, socials } = portfolio;
@@ -9,21 +10,31 @@ export function Hero() {
     <section id="home" className="relative min-h-[100svh] overflow-x-clip">
       <div className="section__inner grid min-h-[100svh] items-start gap-12 pt-24 pb-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-8 md:pt-28 md:pb-20 lg:gap-10">
         <div className="relative z-10 w-full max-w-xl md:max-w-none">
-          <p className="animate-fade-up text-[var(--large-font-size)] font-medium text-text">
-            {profile.greeting}
-          </p>
-          <h1
-            className="animate-fade-up animate-delay-1 mt-3 font-bold leading-[1.15] text-title"
+          <HeroReactiveText
+            as="p"
+            text={profile.greeting}
+            baseWeight={500}
+            className="hero-reactive animate-fade-up text-[var(--large-font-size)] font-medium text-text"
+          />
+          <HeroReactiveText
+            as="h1"
+            text={profile.name}
+            baseWeight={700}
+            className="hero-reactive animate-fade-up animate-delay-1 mt-3 font-bold leading-[1.15] text-title"
             style={{
               fontSize: "clamp(1.75rem, 1.1rem + 2.2vw, 3.25rem)",
               textShadow: "var(--name-shadow)",
             }}
-          >
-            {profile.name}
-          </h1>
-          <p className="animate-fade-up animate-delay-2 mt-4 text-[var(--large-font-size)] font-bold text-title">
-            I Am <span className="text-primary">{profile.role}</span>
-          </p>
+          />
+          <HeroReactiveText
+            as="p"
+            baseWeight={700}
+            parts={[
+              { text: "I Am " },
+              { text: profile.role, className: "text-primary" },
+            ]}
+            className="hero-reactive animate-fade-up animate-delay-2 mt-4 text-[var(--large-font-size)] font-bold text-title"
+          />
           <p className="animate-fade-up animate-delay-3 mt-6 max-w-[520px] text-[var(--normal-font-size)] leading-relaxed text-text sm:mt-8 sm:text-[var(--large-font-size)]">
             {profile.tagline}
           </p>
