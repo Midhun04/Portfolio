@@ -43,8 +43,8 @@ export const portfolio = {
     greeting: "Hello, My Name Is",
     tagline:
       "Based in Kerala, I build full stack products with React, Next.js, Node.js, and GraphQL — from WhatsApp commerce and rewards platforms to streaming apps. I like shipping reliable features and working closely with design and product teams.",
-    yearsExperience: 1,
-    projectsCompleted: 3,
+    yearsExperience: 2,
+    projectsCompleted: 10,
     locationLabel: "Kerala, India",
     cvUrl: "/MidhunDas-CV.pdf",
     image: "/profile.png",
@@ -172,7 +172,7 @@ export const portfolio = {
       role: "Bachelor of Computer Applications",
       org: "MES Keeveeyem College, Valanchery · University of Calicut",
       period: "Jun 2019 — Jul 2022",
-      detail: "CGPA 6.5. Undergraduate foundation in programming, databases, and application development.",
+      detail: "CGPA 6.5.",
     },
     {
       id: "edu-3",

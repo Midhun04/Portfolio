@@ -54,12 +54,9 @@ export function Services() {
                 <h3 className="mt-2 text-[var(--h4-font-size)] font-bold text-title">
                   {service.subtitle}
                 </h3>
-                <p className="mt-4 min-h-[7.5rem] text-[var(--small-font-size)] leading-relaxed text-text">
+                <p className="mt-4 text-[var(--small-font-size)] leading-relaxed text-text">
                   {service.description}
                 </p>
-                <a href="#contact" className="link-accent mt-2 inline-block">
-                  See Pricing
-                </a>
               </article>
             </Reveal>
           ))}

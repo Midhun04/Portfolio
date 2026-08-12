@@ -84,7 +84,7 @@ export function Hero() {
 
           <div className="absolute -right-2 top-10 z-10 w-[min(100%,200px)] rounded-[18px] bg-container p-5 shadow-[var(--shadow)] sm:-right-6">
             <p className="font-script text-4xl font-bold leading-none text-primary">
-              {profile.projectsCompleted}
+              {profile.projectsCompleted}+
             </p>
             <p className="mt-2 text-sm font-bold text-title">
               Completed Projects

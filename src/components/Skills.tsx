@@ -25,28 +25,28 @@ export function Skills() {
                   <h3 className="text-[var(--largest-font-size)] font-semibold text-title">
                     {skill.name}
                   </h3>
-                  <span className="font-bold text-title">{skill.level}%</span>
+                  <span className="font-bold text-primary">{skill.level}%</span>
                 </div>
                 <p className="mb-4 text-[var(--small-font-size)] leading-relaxed text-text">
                   {skill.blurb}
                 </p>
                 <div
-                  className="h-0.5 w-full bg-[var(--meter-track)]"
+                  className="skill-meter"
                   role="meter"
                   aria-valuenow={skill.level}
                   aria-valuemin={0}
                   aria-valuemax={100}
                   aria-label={`${skill.name} proficiency`}
                 >
-                  <div className="h-0.5 bg-board">
-                    <div
-                      className="skill-meter__fill h-0.5 bg-primary"
-                      style={
-                        {
-                          "--skill-level": `${skill.level}%`,
-                        } as CSSProperties
-                      }
-                    />
+                  <div
+                    className="skill-meter__fill"
+                    style={
+                      {
+                        "--skill-level": `${skill.level}%`,
+                      } as CSSProperties
+                    }
+                  >
+                    <span className="skill-meter__thumb" />
                   </div>
                 </div>
               </Reveal>

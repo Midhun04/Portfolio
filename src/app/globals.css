@@ -340,9 +340,33 @@ a {
   transform: translateY(0);
 }
 
+.skill-meter {
+  position: relative;
+  height: 2px;
+  width: 100%;
+  overflow: visible;
+  background: var(--meter-track);
+}
+
 .skill-meter__fill {
+  position: relative;
+  height: 100%;
   width: 0;
+  background: var(--primary-color);
   transition: width 0.9s var(--transition) 0.15s;
+}
+
+.skill-meter__thumb {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 1.5px solid color-mix(in srgb, var(--title-color) 82%, var(--board-color));
+  border-radius: 999px;
+  background: var(--bg-color);
+  box-shadow: 2px 3px 6px rgb(0 0 0 / 35%);
+  transform: translate(50%, -50%);
 }
 
 .reveal.is-visible .skill-meter__fill {
