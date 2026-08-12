@@ -1,22 +1,22 @@
 import Image from "next/image";
 import { portfolio } from "@/data/portfolio";
+import { SocialIcon } from "@/components/SocialIcon";
 
 export function Hero() {
-  const { profile } = portfolio;
+  const { profile, socials } = portfolio;
 
   return (
     <section id="home" className="relative min-h-[100svh] overflow-hidden">
-      <div className="section__inner grid min-h-[100svh] items-center gap-10 py-28 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-8 lg:py-20">
+      <div className="section__inner grid min-h-[100svh] items-start gap-10 pt-24 pb-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-8 lg:pt-28 lg:pb-20">
         <div className="relative z-10 max-w-xl">
           <p className="animate-fade-up text-[var(--large-font-size)] font-medium text-text">
             {profile.greeting}
           </p>
           <h1
-            className="animate-fade-up animate-delay-1 mt-3 font-bold leading-[1.15] text-white"
+            className="animate-fade-up animate-delay-1 mt-3 font-bold leading-[1.15] text-title"
             style={{
-              fontSize: "var(--biggest-font-size)",
-              textShadow:
-                "2px 2px hsl(0 0% 0%), -2px 2px hsl(0 0% 0%), 2px -2px hsl(0 0% 0%), -2px -2px hsl(0 0% 0%), 5px 5px 0 rgb(0 0 0 / 20%)",
+              fontSize: "clamp(1.85rem, 1.2rem + 2.4vw, 3.25rem)",
+              textShadow: "var(--name-shadow)",
             }}
           >
             {profile.name}
@@ -28,15 +28,32 @@ export function Hero() {
             {profile.tagline}
           </p>
 
-          <div className="animate-fade-up animate-delay-4 mt-9 flex flex-wrap items-center gap-x-12 gap-y-6">
+          <div className="animate-fade-up animate-delay-4 mt-9 flex items-center gap-5">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                className="text-title transition-colors hover:text-primary"
+                aria-label={social.label}
+                {...(social.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                <SocialIcon label={social.label} />
+              </a>
+            ))}
+          </div>
+
+          <div className="hero-cta animate-fade-up animate-delay-4 mt-8">
             <a
               href={profile.cvUrl}
-              className="btn btn--primary"
+              className="btn btn--pill"
               download="MidhunDas-CV.pdf"
             >
               Download CV
             </a>
-            <a href="#skills" className="btn--link font-bold">
+            <span className="hero-cta__line" aria-hidden />
+            <a href="#skills" className="hero-cta__link">
               My Skills
             </a>
           </div>

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-:root {
+:root,
+html[data-theme="dark"] {
+  color-scheme: dark;
   --primary-color: hsl(165, 60%, 40%);
   --title-color: hsl(0, 0%, 100%);
   --text-color: hsl(0, 0%, 92%);
@@ -9,6 +11,11 @@
   --container-color: hsl(217, 18%, 14%);
   --board-color: hsl(210, 2%, 65%);
   --shadow: 5px 5px rgb(255 255 255 / 10%);
+  --header-shadow: 0 8px 24px rgb(0 0 0 / 28%);
+  --name-shadow: 2px 2px hsl(0 0% 0%), -2px 2px hsl(0 0% 0%), 2px -2px hsl(0 0% 0%),
+    -2px -2px hsl(0 0% 0%), 5px 5px 0 rgb(0 0 0 / 20%);
+  --border-subtle: rgb(255 255 255 / 8%);
+  --meter-track: rgb(255 255 255 / 20%);
   --transition: cubic-bezier(0.3, 0, 0.3, 1);
   --body-font: var(--font-jost), "Jost", sans-serif;
   --second-font: var(--font-caveat), "Caveat", cursive;
@@ -22,6 +29,22 @@
   --small-font-size: 0.9375rem;
   --smaller-font-size: 0.875rem;
   --tiny-font-size: 0.8125rem;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --primary-color: hsl(165, 62%, 32%);
+  --title-color: hsl(216, 22%, 12%);
+  --text-color: hsl(213, 12%, 32%);
+  --bg-color: hsl(210, 20%, 97%);
+  --bg-color-alt: hsl(210, 16%, 93%);
+  --container-color: hsl(0, 0%, 100%);
+  --board-color: hsl(210, 8%, 52%);
+  --shadow: 5px 5px rgb(15 23 42 / 8%);
+  --header-shadow: 0 8px 24px rgb(15 23 42 / 10%);
+  --name-shadow: none;
+  --border-subtle: rgb(15 23 42 / 10%);
+  --meter-track: rgb(15 23 42 / 12%);
 }
 
 @theme inline {
@@ -47,6 +70,43 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   line-height: 1.7;
+  transition: background-color 0.3s var(--transition), color 0.3s var(--transition);
+}
+
+.theme-toggle {
+  position: relative;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--board-color);
+  border-radius: 999px;
+  background: var(--container-color);
+  color: var(--title-color);
+  box-shadow: var(--shadow);
+  transition: color 0.3s var(--transition), border-color 0.3s var(--transition),
+    background 0.3s var(--transition);
+}
+
+.theme-toggle:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.theme-toggle__sun,
+.theme-toggle__moon {
+  grid-area: 1 / 1;
+}
+
+html[data-theme="dark"] .theme-toggle__moon,
+html[data-theme="light"] .theme-toggle__sun {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle__sun,
+html[data-theme="light"] .theme-toggle__moon {
+  display: block;
 }
 
 ::selection {
@@ -178,7 +238,47 @@ a {
   transition: transform 0.35s var(--transition);
 }
 
-.btn--link:hover {
+.btn--pill {
+  border-radius: 999px;
+  background: transparent;
+  border: 1.5px solid var(--title-color);
+  color: var(--title-color);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--title-color) 16%, transparent);
+}
+
+.btn--pill:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: transparent;
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--primary-color) 22%, transparent);
+}
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0.75rem;
+}
+
+.hero-cta__line {
+  width: 3.25rem;
+  height: 1px;
+  background: var(--title-color);
+  flex-shrink: 0;
+}
+
+.hero-cta__link {
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.hero-cta__link:hover {
   color: var(--primary-color);
 }
 

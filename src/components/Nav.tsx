@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { portfolio } from "@/data/portfolio";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { SocialIcon } from "@/components/SocialIcon";
 
 export function Nav() {
   const { profile, nav, socials } = portfolio;
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -14,8 +17,21 @@ export function Nav() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="absolute inset-x-0 top-0 z-50 px-4 py-6 md:px-8 md:py-8">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 px-4 transition-[padding,background-color,box-shadow,backdrop-filter] duration-300 md:px-8 ${
+        scrolled
+          ? "bg-bg/90 py-4 shadow-[var(--header-shadow)] backdrop-blur-md"
+          : "bg-transparent py-6 md:py-8"
+      }`}
+    >
       <div className="mx-auto flex max-w-[1140px] items-center justify-between">
         <a
           href="#home"
@@ -25,21 +41,8 @@ export function Nav() {
           {profile.shortName}
         </a>
 
-        <div className="flex items-center gap-8">
-          <div className="hidden items-center gap-5 sm:flex">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                className="text-[1.1rem] text-title transition-colors duration-300 hover:text-primary"
-                {...(social.href.startsWith("http")
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-              >
-                {social.label}
-              </a>
-            ))}
-          </div>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <ThemeToggle />
 
           <button
             type="button"
@@ -88,18 +91,19 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <div className="flex flex-wrap gap-5">
+          <div className="flex flex-wrap items-center gap-4">
             {socials.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
-                className="text-title transition-colors hover:text-primary"
+                className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-board text-title transition-colors hover:border-primary hover:text-primary"
+                aria-label={social.label}
                 onClick={() => setOpen(false)}
                 {...(social.href.startsWith("http")
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
               >
-                {social.label}
+                <SocialIcon label={social.label} />
               </a>
             ))}
           </div>

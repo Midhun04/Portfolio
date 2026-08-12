@@ -20,13 +20,23 @@ export const metadata: Metadata = {
     "Personal portfolio of Midhun Das N K, a full stack developer building web products with React, Next.js, Node.js, and GraphQL.",
 };
 
+const themeInitScript = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jost.variable} ${caveat.variable} h-full`}>
+    <html
+      lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${jost.variable} ${caveat.variable} h-full`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-full bg-bg font-sans text-text antialiased">
         {children}
       </body>

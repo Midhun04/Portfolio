@@ -31,7 +31,7 @@ export function Skills() {
                   {skill.blurb}
                 </p>
                 <div
-                  className="h-0.5 w-full bg-white/20"
+                  className="h-0.5 w-full bg-[var(--meter-track)]"
                   role="meter"
                   aria-valuenow={skill.level}
                   aria-valuemin={0}

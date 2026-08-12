@@ -58,8 +58,8 @@ export const portfolio = {
     { label: "Contact", href: "#contact" },
   ] satisfies NavLink[],
   socials: [
-    { label: "GitHub", href: "https://github.com/midhun04" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/midhun04/" },
+    { label: "GitHub", href: "https://github.com/midhun04" },
     { label: "Email", href: "mailto:midhundas3110@gmail.com" },
   ],
   services: [
