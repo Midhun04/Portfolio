@@ -72,13 +72,7 @@ export function Projects() {
                     {project.category}
                   </span>
                   <h3 className="mt-1 text-[var(--h4-font-size)] font-bold text-title">
-                    {project.href ? (
-                      <a href={project.href} className="hover:text-primary">
-                        {project.title}
-                      </a>
-                    ) : (
-                      project.title
-                    )}
+                    {project.title}
                   </h3>
                   <p className="mt-4 text-[var(--small-font-size)] leading-relaxed text-text">
                     {project.description}

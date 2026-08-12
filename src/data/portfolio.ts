@@ -38,7 +38,7 @@ export type ResumeItem = {
 export const portfolio = {
   profile: {
     name: "Midhun Das N K",
-    shortName: "Midhun.",
+    shortName: "MIDHUN",
     role: "Full Stack Developer",
     greeting: "Hello, My Name Is",
     tagline:
