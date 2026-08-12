@@ -29,20 +29,20 @@ function ResumeGroup({
             >
               <button
                 type="button"
-                className="flex w-full items-center justify-between gap-4 px-2 py-8 text-left md:px-4"
+                className="flex w-full items-start justify-between gap-3 px-1 py-6 text-left sm:items-center sm:gap-4 sm:px-2 sm:py-8 md:px-4"
                 aria-expanded={isOpen}
                 onClick={() => setOpenId(isOpen ? null : item.id)}
               >
-                <span>
+                <span className="min-w-0 flex-1">
                   <span className="block text-[var(--largest-font-size)] font-bold text-title">
                     {item.role}
                   </span>
-                  <span className="mt-2 block text-sm text-primary">
+                  <span className="mt-2 block text-[0.8125rem] leading-snug text-primary sm:text-sm">
                     {item.org} · {item.period}
                   </span>
                 </span>
                 <span
-                  className={`icon-circle text-2xl leading-none transition-transform duration-300 ${
+                  className={`icon-circle shrink-0 text-2xl leading-none transition-transform duration-300 ${
                     isOpen ? "rotate-45 text-primary" : ""
                   }`}
                   aria-hidden
@@ -56,7 +56,7 @@ function ResumeGroup({
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="px-2 pb-8 pr-16 text-[var(--small-font-size)] leading-relaxed text-text md:px-4">
+                  <p className="px-1 pb-6 pr-12 text-[var(--small-font-size)] leading-relaxed text-text sm:px-2 sm:pb-8 sm:pr-16 md:px-4">
                     {item.detail}
                   </p>
                 </div>

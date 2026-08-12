@@ -33,7 +33,7 @@ function ContactCard({
   icon: React.ReactNode;
 }) {
   return (
-    <div className="relative mb-10 pl-[5.5rem]">
+    <div className="relative mb-8 pl-[4.5rem] sm:mb-10 sm:pl-[5.5rem]">
       <div className="icon-circle absolute left-0 top-0 text-primary">{icon}</div>
       <h3 className="font-script text-[1.75rem] leading-tight text-title">
         {title}

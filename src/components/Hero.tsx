@@ -6,16 +6,16 @@ export function Hero() {
   const { profile, socials } = portfolio;
 
   return (
-    <section id="home" className="relative min-h-[100svh] overflow-hidden">
-      <div className="section__inner grid min-h-[100svh] items-start gap-10 pt-24 pb-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-8 lg:pt-28 lg:pb-20">
-        <div className="relative z-10 max-w-xl">
+    <section id="home" className="relative min-h-[100svh] overflow-x-clip">
+      <div className="section__inner grid min-h-[100svh] items-start gap-12 pt-24 pb-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-8 md:pt-28 md:pb-20 lg:gap-10">
+        <div className="relative z-10 w-full max-w-xl md:max-w-none">
           <p className="animate-fade-up text-[var(--large-font-size)] font-medium text-text">
             {profile.greeting}
           </p>
           <h1
             className="animate-fade-up animate-delay-1 mt-3 font-bold leading-[1.15] text-title"
             style={{
-              fontSize: "clamp(1.85rem, 1.2rem + 2.4vw, 3.25rem)",
+              fontSize: "clamp(1.75rem, 1.1rem + 2.2vw, 3.25rem)",
               textShadow: "var(--name-shadow)",
             }}
           >
@@ -24,16 +24,16 @@ export function Hero() {
           <p className="animate-fade-up animate-delay-2 mt-4 text-[var(--large-font-size)] font-bold text-title">
             I Am <span className="text-primary">{profile.role}</span>
           </p>
-          <p className="animate-fade-up animate-delay-3 mt-8 max-w-[520px] text-[var(--large-font-size)] leading-relaxed text-text">
+          <p className="animate-fade-up animate-delay-3 mt-6 max-w-[520px] text-[var(--normal-font-size)] leading-relaxed text-text sm:mt-8 sm:text-[var(--large-font-size)]">
             {profile.tagline}
           </p>
 
-          <div className="animate-fade-up animate-delay-4 mt-9 flex items-center gap-5">
+          <div className="animate-fade-up animate-delay-4 mt-7 flex items-center gap-5 sm:mt-9">
             {socials.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
-                className="text-title transition-colors hover:text-primary"
+                className="flex h-10 w-10 items-center justify-center text-title transition-colors hover:text-primary sm:h-auto sm:w-auto"
                 aria-label={social.label}
                 {...(social.href.startsWith("http")
                   ? { target: "_blank", rel: "noopener noreferrer" }
@@ -44,7 +44,7 @@ export function Hero() {
             ))}
           </div>
 
-          <div className="hero-cta animate-fade-up animate-delay-4 mt-8">
+          <div className="hero-cta animate-fade-up animate-delay-4 mt-7 sm:mt-8">
             <a
               href={profile.cvUrl}
               className="btn btn--pill"
@@ -59,8 +59,8 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="animate-fade-up animate-delay-2 relative mx-auto w-full max-w-[420px] lg:max-w-[520px]">
-          <div className="relative overflow-hidden rounded-[28px] bg-container shadow-[var(--shadow)]">
+        <div className="animate-fade-up animate-delay-2 relative mx-auto w-full max-w-[340px] px-4 sm:max-w-[400px] sm:px-6 md:mx-0 md:max-w-none md:px-4 lg:px-6">
+          <div className="relative overflow-hidden rounded-[22px] bg-container shadow-[var(--shadow)] sm:rounded-[28px]">
             <div className="aspect-[4/5] w-full">
               <Image
                 src={profile.image}
@@ -68,30 +68,30 @@ export function Hero() {
                 fill
                 priority
                 className="object-cover object-[center_18%]"
-                sizes="(max-width: 1024px) 90vw, 520px"
+                sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 520px"
               />
             </div>
           </div>
 
-          <div className="absolute -left-3 bottom-10 z-10 w-[min(100%,220px)] rounded-[18px] bg-container p-5 shadow-[var(--shadow)] sm:-left-8">
-            <p className="font-script text-4xl font-bold leading-none text-primary">
+          <div className="absolute bottom-8 left-0 z-10 w-[min(100%,150px)] rounded-[14px] bg-container p-3 shadow-[var(--shadow)] sm:bottom-10 sm:w-[min(100%,200px)] sm:rounded-[18px] sm:p-5 md:-left-4 lg:-left-6">
+            <p className="font-script text-3xl font-bold leading-none text-primary sm:text-4xl">
               {profile.yearsExperience}+
             </p>
-            <p className="mt-2 text-sm font-bold text-title">
+            <p className="mt-1 text-xs font-bold text-title sm:mt-2 sm:text-sm">
               Years of Experience
             </p>
           </div>
 
-          <div className="absolute -right-2 top-10 z-10 w-[min(100%,200px)] rounded-[18px] bg-container p-5 shadow-[var(--shadow)] sm:-right-6">
-            <p className="font-script text-4xl font-bold leading-none text-primary">
+          <div className="absolute right-0 top-8 z-10 w-[min(100%,140px)] rounded-[14px] bg-container p-3 shadow-[var(--shadow)] sm:top-10 sm:w-[min(100%,180px)] sm:rounded-[18px] sm:p-5 md:-right-4 lg:-right-6">
+            <p className="font-script text-3xl font-bold leading-none text-primary sm:text-4xl">
               {profile.projectsCompleted}+
             </p>
-            <p className="mt-2 text-sm font-bold text-title">
+            <p className="mt-1 text-xs font-bold text-title sm:mt-2 sm:text-sm">
               Completed Projects
             </p>
           </div>
 
-          <div className="absolute bottom-[-1.25rem] right-6 rounded-full border-2 border-board bg-container px-5 py-2 text-sm font-bold text-title shadow-[var(--shadow)]">
+          <div className="absolute bottom-[-0.85rem] right-4 rounded-full border-2 border-board bg-container px-3 py-1.5 text-xs font-bold text-title shadow-[var(--shadow)] sm:bottom-[-1.25rem] sm:right-6 sm:px-5 sm:py-2 sm:text-sm">
             {profile.locationLabel}
           </div>
         </div>

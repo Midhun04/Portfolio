@@ -28,7 +28,7 @@ export function Projects() {
 
         <Reveal>
           <div
-            className="mb-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
+            className="mb-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:mb-14 sm:gap-x-10 sm:gap-y-4"
             role="tablist"
             aria-label="Project categories"
           >
