@@ -2,13 +2,41 @@ import Image from "next/image";
 import { portfolio } from "@/data/portfolio";
 import { SocialIcon } from "@/components/SocialIcon";
 import { HeroReactiveText } from "@/components/HeroReactiveText";
+import GradientWaves from "@/components/GradientWaves";
 
 export function Hero() {
   const { profile, socials } = portfolio;
 
   return (
     <section id="home" className="relative min-h-[100svh] overflow-x-clip">
-      <div className="section__inner grid min-h-[100svh] items-start gap-12 pt-24 pb-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-8 md:pt-28 md:pb-20 lg:gap-10">
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        aria-hidden
+      >
+        <GradientWaves
+          horizonColor="#001510"
+          waveColor="#29A37A"
+          crestColor="#E8FFF6"
+          speed={0.35}
+          amplitude={2.2}
+          waveScale={0.55}
+          waveRatio={0.9}
+          swell={30}
+          turbulence={16}
+          tilt={1.11}
+          zoom={1.05}
+          height={5.5}
+          fogDepth={18}
+          detail="medium"
+          brightness={0.85}
+          opacity={0.55}
+          mouseInteraction
+          parallaxStrength={0.4}
+          grain
+          grainIntensity={0.04}
+        />
+      </div>
+      <div className="section__inner relative z-10 grid min-h-[100svh] items-start gap-12 pt-24 pb-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-8 md:pt-28 md:pb-20 lg:gap-10">
         <div className="relative z-10 w-full max-w-xl md:max-w-none">
           <HeroReactiveText
             as="p"
