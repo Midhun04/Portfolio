@@ -145,8 +145,7 @@ export const portfolio = {
       description:
         "Multi-tenant WhatsApp commerce and automation platform. Store catalog sync, in-chat checkout, booking with Google Calendar, a visual flow builder, and CRM routing.",
       tags: ["Next.js", "GraphQL", "Prisma", "PostgreSQL"],
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+      image: "/projects/peedi.png",
     },
     {
       id: "llyk",
@@ -155,8 +154,7 @@ export const portfolio = {
       description:
         "Rewards-as-a-service platform with merchant, participant, and admin apps. Digital wallet, OCR task verification, Razorpay payments, and fraud-prevention tools.",
       tags: ["Next.js", "GraphQL", "Prisma", "Razorpay"],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      image: "/projects/llyk.png",
     },
     {
       id: "ott",
