@@ -125,13 +125,13 @@ export const portfolio = {
     },
     {
       name: "Tailwind CSS",
-      level: 80,
+      level: 85,
       blurb:
         "Layout systems and polished UI for responsive web apps across merchant and customer experiences.",
     },
     {
       name: "Python / Django",
-      level: 72,
+      level: 80,
       blurb:
         "Backend development with Python and Django alongside Node services when the stack calls for it.",
     },
@@ -146,6 +146,7 @@ export const portfolio = {
         "Multi-tenant WhatsApp commerce and automation platform. Store catalog sync, in-chat checkout, booking with Google Calendar, a visual flow builder, and CRM routing.",
       tags: ["Next.js", "GraphQL", "Prisma", "PostgreSQL"],
       image: "/projects/peedi.png",
+      href: "https://peedi.io",
     },
     {
       id: "llyk",
@@ -163,8 +164,7 @@ export const portfolio = {
       description:
         "Streaming product with a React and Next.js UI, content discovery, watchlists, profiles, and a review and rating system on Prisma and MongoDB.",
       tags: ["React", "Next.js", "Prisma", "MongoDB"],
-      image:
-        "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=800&q=80",
+      image: "/projects/ott.png",
     },
   ] satisfies Project[],
   education: [
