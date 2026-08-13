@@ -20,9 +20,67 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Midhun Das N K — Full Stack Developer",
+  metadataBase: new URL("https://midhundas.vercel.app"),
+
+  title: {
+    default: "Midhun Das N K | Full Stack Developer",
+    template: "%s | Midhun Das N K",
+  },
+
   description:
-    "Personal portfolio of Midhun Das N K, a full stack developer building web products with React, Next.js, Node.js, and GraphQL.",
+    "Midhun Das N K is a Full Stack Developer specializing in React, Next.js, Node.js, GraphQL, TypeScript, Prisma, MongoDB, and modern web application development.",
+
+  keywords: [
+    "Midhun Das N K",
+    "Midhun Das",
+    "Full Stack Developer",
+    "Full Stack Developer Kerala",
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "TypeScript Developer",
+    "GraphQL Developer",
+    "Web Developer Kerala",
+  ],
+
+  authors: [
+    {
+      name: "Midhun Das N K",
+      url: "https://midhundas.vercel.app",
+    },
+  ],
+
+  creator: "Midhun Das N K",
+
+  alternates: {
+    canonical: "https://midhundas.vercel.app",
+  },
+
+  openGraph: {
+    type: "website",
+    url: "https://midhundas.vercel.app",
+    title: "Midhun Das N K | Full Stack Developer",
+    description:
+      "Portfolio of Midhun Das N K, a Full Stack Developer specializing in React, Next.js, Node.js, GraphQL, TypeScript, Prisma, and MongoDB.",
+    siteName: "Midhun Das N K",
+    locale: "en_IN",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Midhun Das N K | Full Stack Developer",
+    description:
+      "Portfolio of Midhun Das N K, a Full Stack Developer specializing in React, Next.js, Node.js, GraphQL, and TypeScript.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 const themeInitScript = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`;
@@ -42,6 +100,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
+
       <body className="min-h-full bg-bg font-sans text-text antialiased">
         {children}
       </body>
