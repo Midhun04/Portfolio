@@ -269,7 +269,7 @@ export function Contact() {
                   )}
                 </div>
 
-                <button type="submit" className="btn btn--primary mt-8">
+                <button type="submit" className="btn btn--pill mt-8">
                   Send Message
                 </button>
               </form>

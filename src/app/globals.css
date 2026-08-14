@@ -977,6 +977,42 @@ html[data-theme="light"] .services-deck__backdrop {
   }
 }
 
+/* —— Project visit CTA (circular arrow) —— */
+.project-visit {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 0 22px color-mix(in srgb, var(--primary-color) 55%, transparent);
+  transition:
+    transform 0.35s var(--transition),
+    filter 0.35s var(--transition),
+    box-shadow 0.35s var(--transition);
+}
+
+.project-visit__icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  transition: transform 0.35s var(--transition);
+}
+
+.project-visit:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--primary-color) 70%, transparent);
+}
+
+.project-visit:hover .project-visit__icon {
+  transform: translateX(2px);
+}
+
+.project-visit:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
 /* —— Projects horizontal scroller —— */
 .projects-carousel {
   position: relative;

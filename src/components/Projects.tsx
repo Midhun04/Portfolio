@@ -512,10 +512,22 @@ function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             draggable={false}
-            className="btn btn--link mt-5"
-            aria-label={`Visit ${project.title} project`}
+            className="project-visit mt-5"
+            aria-label={`Visit ${project.title} site`}
           >
-            Visit site
+            <svg
+              viewBox="0 0 24 24"
+              className="project-visit__icon"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <path d="M5 12h14" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
           </a>
         ) : null}
       </article>
