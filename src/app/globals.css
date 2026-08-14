@@ -575,6 +575,34 @@ a {
   }
 }
 
+.skill-stack .skill-card {
+  padding: 0;
+}
+
+.skill-stack .skill-card__glow {
+  inset: -1rem;
+  border-radius: 1.25rem;
+}
+
+.skill-stack .skill-card__header {
+  margin-bottom: 0.65rem;
+}
+
+.skill-stack .skill-card__title {
+  font-size: var(--largest-font-size);
+}
+
+.skill-stack .skill-card__level {
+  font-size: var(--large-font-size);
+}
+
+.skill-stack .skill-card__blurb {
+  max-width: 44ch;
+  margin-bottom: 1.15rem;
+  font-size: var(--small-font-size);
+  line-height: 1.55;
+}
+
 @media (max-width: 1024px) {
   .section {
     padding: 56px 0 72px;

@@ -10,6 +10,7 @@ import {
 import { portfolio } from "@/data/portfolio";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -73,7 +74,7 @@ function SkillItem({
   blurb: string;
   delayMs: number;
 }) {
-  const itemRef = useRef<HTMLLIElement>(null);
+  const itemRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [spotlight, setSpotlight] = useState({ x: 50, y: 40 });
@@ -97,7 +98,7 @@ function SkillItem({
   }, []);
 
   return (
-    <li
+    <div
       ref={itemRef}
       className={`skill-card${visible ? " is-visible" : ""}${hovered ? " is-hovered" : ""}`}
       style={{ "--skill-delay": `${delayMs}ms` } as CSSProperties}
@@ -144,12 +145,13 @@ function SkillItem({
           <span className="skill-meter__thumb" />
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 
 export function Skills() {
   const { skills } = portfolio;
+  const reduceMotion = usePrefersReducedMotion();
 
   return (
     <section id="skills" className="section scroll-mt-8">
@@ -158,17 +160,41 @@ export function Skills() {
           <SectionHeading eyebrow="Professional Skills" title="My Talent" />
         </Reveal>
 
-        <ul className="skill-grid">
-          {skills.map((skill, index) => (
-            <SkillItem
-              key={skill.name}
-              name={skill.name}
-              level={skill.level}
-              blurb={skill.blurb}
-              delayMs={index * 70}
-            />
-          ))}
-        </ul>
+        {reduceMotion ? (
+          <div className="skill-grid">
+            {skills.map((skill, index) => (
+              <SkillItem
+                key={skill.name}
+                name={skill.name}
+                level={skill.level}
+                blurb={skill.blurb}
+                delayMs={index * 70}
+              />
+            ))}
+          </div>
+        ) : (
+          <ScrollStack
+            className="skill-stack"
+            useWindowScroll
+            itemDistance={80}
+            itemStackDistance={26}
+            stackPosition="24%"
+            scaleEndPosition="12%"
+            baseScale={0.85}
+            blurAmount={1}
+          >
+            {skills.map((skill) => (
+              <ScrollStackItem key={skill.name}>
+                <SkillItem
+                  name={skill.name}
+                  level={skill.level}
+                  blurb={skill.blurb}
+                  delayMs={0}
+                />
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        )}
       </div>
     </section>
   );
