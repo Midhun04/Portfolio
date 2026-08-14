@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { portfolio } from "@/data/portfolio";
 import { SocialIcon } from "@/components/SocialIcon";
 import { HeroReactiveText } from "@/components/HeroReactiveText";
 import GradientWaves from "@/components/GradientWaves";
+import TiltedCard from "@/components/TiltedCard";
 
 export function Hero() {
   const { profile, socials } = portfolio;
@@ -99,20 +99,25 @@ export function Hero() {
         </div>
 
         <div className="animate-fade-up animate-delay-2 relative mx-auto w-full max-w-[340px] px-4 sm:max-w-[400px] sm:px-6 md:mx-0 md:max-w-none md:px-4 lg:px-6">
-          <div className="relative overflow-hidden rounded-[22px] bg-container shadow-[var(--shadow)] sm:rounded-[28px]">
-            <div className="aspect-[4/5] w-full">
-              <Image
-                src={profile.image}
-                alt={profile.imageAlt}
-                fill
-                priority
-                className="object-cover object-[center_18%]"
-                sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 520px"
-              />
-            </div>
+          <div className="relative aspect-[4/5] w-full [--tilted-card-radius:22px] sm:[--tilted-card-radius:28px]">
+            <TiltedCard
+              imageSrc={profile.image}
+              altText={profile.imageAlt}
+              captionText={`${profile.name} — ${profile.role}`}
+              containerHeight="100%"
+              containerWidth="100%"
+              imageHeight="100%"
+              imageWidth="100%"
+              imageClassName="object-[center_18%] shadow-[var(--shadow)]"
+              sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 520px"
+              priority
+              rotateAmplitude={10}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+            />
           </div>
 
-          <div className="absolute bottom-8 left-0 z-10 w-[min(100%,150px)] rounded-[14px] bg-container p-3 shadow-[var(--shadow)] sm:bottom-10 sm:w-[min(100%,200px)] sm:rounded-[18px] sm:p-5 md:-left-4 lg:-left-6">
+          <div className="pointer-events-none absolute bottom-8 left-0 z-10 w-[min(100%,150px)] rounded-[14px] bg-container p-3 shadow-[var(--shadow)] sm:bottom-10 sm:w-[min(100%,200px)] sm:rounded-[18px] sm:p-5 md:-left-4 lg:-left-6">
             <p className="font-script text-3xl font-bold leading-none text-primary sm:text-4xl">
               {profile.yearsExperience}+
             </p>
@@ -121,7 +126,7 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="absolute right-0 top-8 z-10 w-[min(100%,140px)] rounded-[14px] bg-container p-3 shadow-[var(--shadow)] sm:top-10 sm:w-[min(100%,180px)] sm:rounded-[18px] sm:p-5 md:-right-4 lg:-right-6">
+          <div className="pointer-events-none absolute right-0 top-8 z-10 w-[min(100%,140px)] rounded-[14px] bg-container p-3 shadow-[var(--shadow)] sm:top-10 sm:w-[min(100%,180px)] sm:rounded-[18px] sm:p-5 md:-right-4 lg:-right-6">
             <p className="font-script text-3xl font-bold leading-none text-primary sm:text-4xl">
               {profile.projectsCompleted}+
             </p>
@@ -130,7 +135,7 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="absolute bottom-[-0.85rem] right-4 rounded-full border-2 border-board bg-container px-3 py-1.5 text-xs font-bold text-title shadow-[var(--shadow)] sm:bottom-[-1.25rem] sm:right-6 sm:px-5 sm:py-2 sm:text-sm">
+          <div className="pointer-events-none absolute bottom-[-0.85rem] right-4 z-10 rounded-full border-2 border-board bg-container px-3 py-1.5 text-xs font-bold text-title shadow-[var(--shadow)] sm:bottom-[-1.25rem] sm:right-6 sm:px-5 sm:py-2 sm:text-sm">
             {profile.locationLabel}
           </div>
         </div>
