@@ -175,6 +175,19 @@ export const portfolio = {
       image: "/projects/ott.png",
       imageAlt:
         "OTT streaming app interface by Midhun Das N K, a React and Next.js developer project",
+      href: "https://showdropott.vercel.app/",
+    },
+    {
+      id: "mobile-parts-finder",
+      title: "Mobile Parts Finder",
+      category: "Platform",
+      description:
+        "A spare-parts compatibility platform for mobile repair shops. Search by brand, model, or part number to see which displays, batteries, and other parts fit which phones. Includes a Next.js web app, Expo mobile client, and an admin dashboard for catalog CRUD, compatibility groups, CSV import/export, and verified links — built on Express, Prisma, and PostgreSQL.",
+      tags: ["Next.js", "Expo", "Prisma", "PostgreSQL"],
+      image: "/projects/mobile-parts-finder.png",
+      imageAlt:
+        "Mobile Parts Finder web and mobile app by Midhun Das N K, a Next.js and Expo spare-parts compatibility platform",
+      href: "https://mobilepartsfinder.vercel.app/",
     },
   ] satisfies Project[],
   education: [

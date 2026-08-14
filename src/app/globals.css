@@ -941,6 +941,82 @@ html[data-theme="light"] .services-deck__backdrop {
   }
 }
 
+/* —— Projects horizontal marquee —— */
+.projects-marquee {
+  --projects-gap: 1.75rem;
+  --projects-visible: 1;
+  container-type: inline-size;
+  width: min(1140px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  overflow: hidden;
+  padding-block: 0.25rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .projects-marquee {
+    --projects-visible: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-marquee {
+    --projects-visible: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-marquee {
+    width: min(1140px, calc(100% - 2rem));
+  }
+}
+
+.projects-marquee__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.projects-marquee--animate .projects-marquee__track {
+  animation: projects-marquee 42s linear infinite;
+}
+
+.projects-marquee--animate:hover .projects-marquee__track,
+.projects-marquee--animate:focus-within .projects-marquee__track {
+  animation-play-state: paused;
+}
+
+.projects-marquee:not(.projects-marquee--animate) .projects-marquee__track {
+  width: 100%;
+  justify-content: center;
+}
+
+.projects-marquee__set {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--projects-gap);
+  padding-right: var(--projects-gap);
+  margin: 0;
+  list-style: none;
+}
+
+.projects-marquee:not(.projects-marquee--animate) .projects-marquee__set {
+  padding-right: 0;
+}
+
+.projects-marquee__item {
+  width: calc(
+    (100cqi - (var(--projects-visible) - 1) * var(--projects-gap)) /
+      var(--projects-visible)
+  );
+  flex-shrink: 0;
+}
+
+@keyframes projects-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -993,5 +1069,29 @@ html[data-theme="light"] .services-deck__backdrop {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .projects-marquee {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .projects-marquee::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projects-marquee--animate .projects-marquee__track {
+    animation: none;
+    will-change: auto;
+  }
+
+  .projects-marquee__set[aria-hidden="true"] {
+    display: none;
+  }
+
+  .projects-marquee__item {
+    scroll-snap-align: start;
   }
 }

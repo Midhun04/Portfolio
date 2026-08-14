@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { portfolio } from "@/data/portfolio";
+import { portfolio, type Project } from "@/data/portfolio";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -19,6 +19,8 @@ export function Projects() {
 
     return projects.filter((project) => project.category === active);
   }, [active, projects]);
+
+  const shouldMarquee = filtered.length > 1;
 
   return (
     <section
@@ -76,80 +78,106 @@ export function Projects() {
             })}
           </div>
         </Reveal>
-
-        {/* Projects */}
-        <ul
-          id="project-list"
-          className="grid gap-10 md:grid-cols-2 lg:grid-cols-3"
-          aria-label="Featured web development projects"
-        >
-          {filtered.map((project, index) => (
-            <li key={project.id}>
-              <Reveal delayMs={index * 50}>
-                <article
-                  className="group"
-                  aria-labelledby={`project-${project.id}`}
-                >
-                  {/* Project image */}
-                  <div className="overflow-hidden rounded-[18px]">
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.imageAlt}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Project category */}
-                  <span className="mt-5 block text-[var(--tiny-font-size)] font-bold text-primary">
-                    {project.category}
-                  </span>
-
-                  {/* Project title */}
-                  <h3
-                    id={`project-${project.id}`}
-                    className="mt-1 text-[var(--h4-font-size)] font-bold text-title"
-                  >
-                    {project.href ? (
-                      <a
-                        href={project.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="transition-colors hover:text-primary"
-                      >
-                        {project.title}
-                      </a>
-                    ) : (
-                      project.title
-                    )}
-                  </h3>
-
-                  {/* Project description */}
-                  <p className="mt-4 text-[var(--small-font-size)] leading-relaxed text-text">
-                    {project.description}
-                  </p>
-
-                  {/* Project link */}
-                  {project.href ? (
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn--link mt-5"
-                      aria-label={`Visit ${project.title} project`}
-                    >
-                      Visit site
-                    </a>
-                  ) : null}
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
       </div>
+
+      {/* Horizontal scrolling project row */}
+      <Reveal>
+        <div
+          className={`projects-marquee${shouldMarquee ? " projects-marquee--animate" : ""}`}
+        >
+          <div key={active} className="projects-marquee__track">
+            <ProjectSet
+              projects={filtered}
+              labelled
+            />
+            {shouldMarquee ? (
+              <ProjectSet
+                projects={filtered}
+                labelled={false}
+              />
+            ) : null}
+          </div>
+        </div>
+      </Reveal>
     </section>
+  );
+}
+
+function ProjectSet({
+  projects,
+  labelled,
+}: {
+  projects: Project[];
+  labelled: boolean;
+}) {
+  return (
+    <ul
+      id={labelled ? "project-list" : undefined}
+      className="projects-marquee__set"
+      aria-hidden={labelled ? undefined : true}
+      aria-label={labelled ? "Featured web development projects" : undefined}
+      inert={labelled ? undefined : true}
+    >
+      {projects.map((project) => (
+        <li key={`${labelled ? "a" : "b"}-${project.id}`} className="projects-marquee__item">
+          <article
+            className="group h-full"
+            aria-labelledby={labelled ? `project-${project.id}` : undefined}
+          >
+            <div className="overflow-hidden rounded-[18px]">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={labelled ? project.imageAlt : ""}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 360px"
+                />
+              </div>
+            </div>
+
+            <span className="mt-5 block text-[var(--tiny-font-size)] font-bold text-primary">
+              {project.category}
+            </span>
+
+            <h3
+              id={labelled ? `project-${project.id}` : undefined}
+              className="mt-1 text-[var(--h4-font-size)] font-bold text-title"
+            >
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={labelled ? undefined : -1}
+                  className="transition-colors hover:text-primary"
+                >
+                  {project.title}
+                </a>
+              ) : (
+                project.title
+              )}
+            </h3>
+
+            <p className="mt-4 line-clamp-4 text-[var(--small-font-size)] leading-relaxed text-text">
+              {project.description}
+            </p>
+
+            {project.href ? (
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex={labelled ? undefined : -1}
+                className="btn btn--link mt-5"
+                aria-label={`Visit ${project.title} project`}
+              >
+                Visit site
+              </a>
+            ) : null}
+          </article>
+        </li>
+      ))}
+    </ul>
   );
 }
