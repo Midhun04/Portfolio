@@ -977,79 +977,132 @@ html[data-theme="light"] .services-deck__backdrop {
   }
 }
 
-/* —— Projects horizontal marquee —— */
-.projects-marquee {
-  --projects-gap: 1.75rem;
-  --projects-visible: 1;
-  container-type: inline-size;
+/* —— Projects horizontal scroller —— */
+.projects-carousel {
+  position: relative;
   width: min(1140px, calc(100% - 2.5rem));
   margin-inline: auto;
-  overflow: hidden;
+}
+
+.projects-scroller {
+  --projects-gap: 1.75rem;
+  --projects-visible: 1;
+  --projects-fade-start: 0px;
+  --projects-fade-end: 0px;
+  container-type: inline-size;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
   padding-block: 0.25rem 0.5rem;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--projects-fade-start),
+    #000 calc(100% - var(--projects-fade-end)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--projects-fade-start),
+    #000 calc(100% - var(--projects-fade-end)),
+    transparent 100%
+  );
 }
 
-@media (min-width: 768px) {
-  .projects-marquee {
-    --projects-visible: 2;
-  }
+.projects-scroller::-webkit-scrollbar {
+  display: none;
 }
 
-@media (min-width: 1024px) {
-  .projects-marquee {
-    --projects-visible: 3;
-  }
+.projects-scroller:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 6px;
+  border-radius: 20px;
 }
 
-@media (max-width: 768px) {
-  .projects-marquee {
-    width: min(1140px, calc(100% - 2rem));
-  }
+.projects-carousel[data-at-start="false"] .projects-scroller {
+  --projects-fade-start: 2.5rem;
 }
 
-.projects-marquee__track {
+.projects-carousel[data-at-end="false"] .projects-scroller {
+  --projects-fade-end: 2.5rem;
+}
+
+.projects-scroller__track {
   display: flex;
-  width: max-content;
-  will-change: transform;
-}
-
-.projects-marquee--animate .projects-marquee__track {
-  animation: projects-marquee 42s linear infinite;
-}
-
-.projects-marquee--animate:hover .projects-marquee__track,
-.projects-marquee--animate:focus-within .projects-marquee__track {
-  animation-play-state: paused;
-}
-
-.projects-marquee:not(.projects-marquee--animate) .projects-marquee__track {
-  width: 100%;
-  justify-content: center;
-}
-
-.projects-marquee__set {
-  display: flex;
-  flex-shrink: 0;
+  justify-content: flex-start;
+  justify-content: safe center;
   gap: var(--projects-gap);
-  padding-right: var(--projects-gap);
+  width: max-content;
+  min-width: 100%;
   margin: 0;
+  padding: 0;
   list-style: none;
 }
 
-.projects-marquee:not(.projects-marquee--animate) .projects-marquee__set {
-  padding-right: 0;
-}
-
-.projects-marquee__item {
+.projects-scroller__item {
   width: calc(
     (100cqi - (var(--projects-visible) - 1) * var(--projects-gap)) /
       var(--projects-visible)
   );
   flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
-@keyframes projects-marquee {
-  to {
-    transform: translateX(-50%);
+@media (hover: hover) and (pointer: fine) {
+  .projects-scroller {
+    cursor: grab;
+  }
+}
+
+/*
+ * Snapping fights the drift: every frame would be yanked back to the nearest
+ * card, so a drifting row scrolls freely instead.
+ */
+.projects-carousel[data-drift="true"] .projects-scroller {
+  scroll-snap-type: none;
+}
+
+/* Smooth behaviour would animate every scrollLeft write and lag the motion. */
+.projects-scroller.is-autoplay,
+.projects-scroller.is-dragging {
+  scroll-behavior: auto;
+}
+
+.projects-scroller.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .projects-scroller {
+    --projects-visible: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-scroller {
+    --projects-visible: 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-carousel {
+    width: min(1140px, calc(100% - 2rem));
+  }
+
+  .projects-scroller {
+    --projects-gap: 1rem;
+  }
+
+  /* Leaves the next card peeking so the row reads as swipeable. */
+  .projects-scroller__item {
+    width: calc(100cqi - 2.75rem);
   }
 }
 
@@ -1107,27 +1160,7 @@ html[data-theme="light"] .services-deck__backdrop {
     transform: none !important;
   }
 
-  .projects-marquee {
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .projects-marquee::-webkit-scrollbar {
-    display: none;
-  }
-
-  .projects-marquee--animate .projects-marquee__track {
-    animation: none;
-    will-change: auto;
-  }
-
-  .projects-marquee__set[aria-hidden="true"] {
-    display: none;
-  }
-
-  .projects-marquee__item {
-    scroll-snap-align: start;
+  .projects-scroller {
+    scroll-behavior: auto;
   }
 }
