@@ -57,7 +57,7 @@ export function Projects() {
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
                         src={project.image}
-                        alt={project.title}
+                        alt={project.imageAlt}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -68,7 +68,18 @@ export function Projects() {
                     {project.category}
                   </span>
                   <h3 className="mt-1 text-[var(--h4-font-size)] font-bold text-title">
-                    {project.title}
+                    {project.href ? (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors hover:text-primary"
+                      >
+                        {project.title}
+                      </a>
+                    ) : (
+                      project.title
+                    )}
                   </h3>
                   <p className="mt-4 text-[var(--small-font-size)] leading-relaxed text-text">
                     {project.description}

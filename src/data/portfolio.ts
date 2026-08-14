@@ -28,6 +28,7 @@ export type Project = {
   description: string;
   tags: string[];
   image: string;
+  imageAlt: string;
   href?: string;
 };
 
@@ -46,20 +47,23 @@ export const portfolio = {
     role: "Full Stack Developer",
     greeting: "Hello, My Name Is",
     tagline:
-      "Based in Kerala, I build full stack products with React, Next.js, Node.js, and GraphQL — from WhatsApp commerce and rewards platforms to streaming apps. I like shipping reliable features and working closely with design and product teams.",
+      "I'm a Full Stack Developer in Kerala, building products with React and Next.js — from WhatsApp commerce and rewards platforms to streaming apps. I work with Node.js, GraphQL, and TypeScript, and like shipping reliable features with design and product teams.",
     yearsExperience: 2,
     projectsCompleted: 10,
     locationLabel: "Kerala, India",
     cvUrl: "/MidhunDas-CV.pdf",
     image: "/profile.png",
+    imageAlt:
+      "Portrait of Midhun Das N K, Full Stack Developer in Kerala",
+    siteUrl: "https://midhundas.vercel.app",
   },
   nav: [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "Skills", href: "#skills" },
-    { label: "Portfolio", href: "#work" },
-    { label: "Resume", href: "#resume" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/#services" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Portfolio", href: "/#work" },
+    { label: "Resume", href: "/#resume" },
+    { label: "Contact", href: "/#contact" },
   ] satisfies NavLink[],
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/midhun04/" },
@@ -146,6 +150,8 @@ export const portfolio = {
         "Multi-tenant WhatsApp commerce and automation platform. Store catalog sync, in-chat checkout, booking with Google Calendar, a visual flow builder, and CRM routing.",
       tags: ["Next.js", "GraphQL", "Prisma", "PostgreSQL"],
       image: "/projects/peedi.png",
+      imageAlt:
+        "PEEDI WhatsApp commerce platform by Midhun Das N K, a Next.js and GraphQL full stack project",
       href: "https://peedi.io",
     },
     {
@@ -156,6 +162,8 @@ export const portfolio = {
         "Rewards-as-a-service platform with merchant, participant, and admin apps. Digital wallet, OCR task verification, Razorpay payments, and fraud-prevention tools.",
       tags: ["Next.js", "GraphQL", "Prisma", "Razorpay"],
       image: "/projects/llyk.png",
+      imageAlt:
+        "LLYK rewards platform by Midhun Das N K, built with Next.js, GraphQL, and Prisma",
     },
     {
       id: "ott",
@@ -165,6 +173,8 @@ export const portfolio = {
         "Streaming product with a React and Next.js UI, content discovery, watchlists, profiles, and a review and rating system on Prisma and MongoDB.",
       tags: ["React", "Next.js", "Prisma", "MongoDB"],
       image: "/projects/ott.png",
+      imageAlt:
+        "OTT streaming app interface by Midhun Das N K, a React and Next.js developer project",
     },
   ] satisfies Project[],
   education: [

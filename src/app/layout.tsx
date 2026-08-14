@@ -23,12 +23,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://midhundas.vercel.app"),
 
   title: {
-    default: "Midhun Das N K | Full Stack Developer",
+    default: "Midhun Das N K | Full Stack Developer in Kerala",
     template: "%s | Midhun Das N K",
   },
 
   description:
-    "Midhun Das N K is a Full Stack Developer specializing in React, Next.js, Node.js, GraphQL, TypeScript, Prisma, MongoDB, and modern web application development.",
+    "Midhun Das N K (Midhun Das) is a Full Stack Developer in Kerala specializing in React, Next.js, Node.js, GraphQL, and TypeScript. View projects, skills, and contact.",
 
   keywords: [
     "Midhun Das N K",
@@ -57,20 +57,29 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    type: "website",
+    type: "profile",
     url: "https://midhundas.vercel.app",
-    title: "Midhun Das N K | Full Stack Developer",
+    title: "Midhun Das N K | Full Stack Developer in Kerala | React & Next.js",
     description:
-      "Portfolio of Midhun Das N K, a Full Stack Developer specializing in React, Next.js, Node.js, GraphQL, TypeScript, Prisma, and MongoDB.",
+      "Portfolio of Midhun Das N K (Midhun Das), a Full Stack Developer in Kerala specializing in React, Next.js, Node.js, GraphQL, and TypeScript.",
     siteName: "Midhun Das N K",
     locale: "en_IN",
+    firstName: "Midhun",
+    lastName: "Das N K",
+    images: [
+      {
+        url: "/profile.png",
+        alt: "Portrait of Midhun Das N K, Full Stack Developer in Kerala",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Midhun Das N K | Full Stack Developer",
+    title: "Midhun Das N K | Full Stack Developer in Kerala",
     description:
-      "Portfolio of Midhun Das N K, a Full Stack Developer specializing in React, Next.js, Node.js, GraphQL, and TypeScript.",
+      "Full Stack Developer in Kerala specializing in React, Next.js, Node.js, GraphQL, and TypeScript.",
+    images: ["/profile.png"],
   },
 
   robots: {

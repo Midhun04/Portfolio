@@ -92,7 +92,7 @@ export function Hero() {
               Download CV
             </a>
             <span className="hero-cta__line" aria-hidden />
-            <a href="#skills" className="hero-cta__link">
+            <a href="/#skills" className="hero-cta__link">
               My Skills
             </a>
           </div>
@@ -103,7 +103,7 @@ export function Hero() {
             <div className="aspect-[4/5] w-full">
               <Image
                 src={profile.image}
-                alt={profile.name}
+                alt={profile.imageAlt}
                 fill
                 priority
                 className="object-cover object-[center_18%]"

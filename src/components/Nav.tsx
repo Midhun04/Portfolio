@@ -35,9 +35,9 @@ export function Nav() {
     >
       <div className="mx-auto flex max-w-[1140px] items-center justify-between">
         <a
-          href="#home"
+          href="/"
           className="inline-flex items-center gap-3 text-[1.5rem] font-bold text-title"
-          aria-label={profile.shortName}
+          aria-label={`${profile.name} — home`}
           onClick={() => setOpen(false)}
         >
           <HeroEyes />
