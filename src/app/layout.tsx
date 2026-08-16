@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     "Midhun Das",
     "Full Stack Developer",
     "Full Stack Developer Kerala",
-    "React Developer",
-    "Next.js Developer",
+    "React Developer Kerala",
+    "Next.js Developer Kerala",
     "Node.js Developer",
     "TypeScript Developer",
     "GraphQL Developer",
@@ -51,35 +51,16 @@ export const metadata: Metadata = {
   ],
 
   creator: "Midhun Das N K",
-
-  alternates: {
-    canonical: "https://midhundas.vercel.app",
-  },
+  category: "portfolio",
 
   openGraph: {
-    type: "profile",
-    url: "https://midhundas.vercel.app",
-    title: "Midhun Das N K | Full Stack Developer in Kerala | React & Next.js",
-    description:
-      "Portfolio of Midhun Das N K (Midhun Das), a Full Stack Developer in Kerala specializing in React, Next.js, Node.js, GraphQL, and TypeScript.",
+    type: "website",
     siteName: "Midhun Das N K",
     locale: "en_IN",
-    firstName: "Midhun",
-    lastName: "Das N K",
-    images: [
-      {
-        url: "/profile.png",
-        alt: "Portrait of Midhun Das N K, Full Stack Developer in Kerala",
-      },
-    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Midhun Das N K | Full Stack Developer in Kerala",
-    description:
-      "Full Stack Developer in Kerala specializing in React, Next.js, Node.js, GraphQL, and TypeScript.",
-    images: ["/profile.png"],
   },
 
   robots: {
@@ -88,6 +69,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
 };

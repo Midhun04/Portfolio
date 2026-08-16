@@ -35,7 +35,11 @@ export function Services() {
     <section id="services" className="section services-section scroll-mt-8">
       <div className="section__inner">
         <Reveal>
-          <SectionHeading eyebrow="What I Do" title="My Services" />
+          <SectionHeading
+            eyebrow="What I Do"
+            title="My Services"
+            description="Frontend, backend, and full stack development for product teams — React and Next.js interfaces, Node.js and GraphQL APIs, and the features that connect them."
+          />
         </Reveal>
       </div>
 

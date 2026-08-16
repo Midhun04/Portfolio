@@ -91,7 +91,11 @@ export function Contact() {
     <section id="contact" className="section scroll-mt-8">
       <div className="section__inner">
         <Reveal>
-          <SectionHeading eyebrow="Contact Me" title={contact.heading} />
+          <SectionHeading
+            eyebrow="Contact Me"
+            title={contact.heading}
+            description="Looking for a Full Stack Developer in Kerala for React, Next.js, or Node.js work? Email, call, or send a message — I am open to opportunities."
+          />
         </Reveal>
 
         <div className="grid gap-14 lg:grid-cols-[5fr_7fr] lg:gap-16">

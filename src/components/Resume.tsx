@@ -76,7 +76,11 @@ export function Resume() {
     <section id="resume" className="section scroll-mt-8">
       <div className="section__inner">
         <Reveal>
-          <SectionHeading eyebrow="Resume" title="My Story" />
+          <SectionHeading
+            eyebrow="Resume"
+            title="My Story"
+            description="Education, experience, and certifications of Midhun Das N K — Full Stack Developer based in Kerala, currently building live products at Wecypher Creative Consultants."
+          />
         </Reveal>
 
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-12">

@@ -156,6 +156,17 @@ a {
   line-height: 1.1;
 }
 
+.section__lead {
+  max-width: 40rem;
+  margin: 1.25rem auto 0;
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  font-weight: 400;
+  line-height: 1.7;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 .card {
   background: var(--container-color);
   border-radius: 18px;

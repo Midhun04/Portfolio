@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { portfolio, type Project } from "@/data/portfolio";
+import { portfolio, projectPath, type Project } from "@/data/portfolio";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -370,26 +370,16 @@ export function Projects() {
       aria-labelledby="projects-heading"
     >
       <div className="section__inner">
-        {/* Section heading */}
         <Reveal>
           <div id="projects-heading">
             <SectionHeading
               eyebrow="Portfolio"
               title="Featured Projects"
+              description="Selected web products I have built with React, Next.js, Node.js, TypeScript, GraphQL, PostgreSQL, and MongoDB — from WhatsApp commerce to streaming apps."
             />
           </div>
         </Reveal>
 
-        {/* SEO-friendly section description */}
-        <Reveal>
-          <p className="mx-auto mb-10 max-w-2xl text-center text-[var(--small-font-size)] leading-relaxed text-text sm:mb-14">
-            Explore some of my web development projects built with
-            React, Next.js, Node.js, TypeScript, MongoDB,
-            PostgreSQL, and other modern technologies.
-          </p>
-        </Reveal>
-
-        {/* Project category filters */}
         <Reveal>
           <div
             className="mb-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:mb-14 sm:gap-x-10 sm:gap-y-4"
@@ -421,7 +411,6 @@ export function Projects() {
         </Reveal>
       </div>
 
-      {/* Drifting row that also scrolls by drag and swipe */}
       <Reveal>
         <div
           ref={carouselRef}
@@ -436,8 +425,6 @@ export function Projects() {
             role="region"
             aria-label="Featured projects, scrollable horizontally"
             tabIndex={0}
-            // Keeps Lenis (window smooth scrolling) from swallowing sideways
-            // swipes and trackpad gestures that belong to this row.
             data-lenis-prevent-horizontal=""
             onScroll={syncScrollState}
             onClickCapture={onClickCapture}
@@ -455,18 +442,29 @@ export function Projects() {
           </div>
         </div>
       </Reveal>
+
+      <p className="mt-10 text-center">
+        <a
+          href="/projects"
+          className="text-[var(--tiny-font-size)] font-bold uppercase tracking-[0.08em] text-primary"
+        >
+          All project case studies
+        </a>
+      </p>
     </section>
   );
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const caseStudyHref = projectPath(project.slug);
+
   return (
     <li className="projects-scroller__item">
       <article
         className="group h-full"
         aria-labelledby={`project-${project.id}`}
       >
-        <div className="overflow-hidden rounded-[18px]">
+        <a href={caseStudyHref} className="block overflow-hidden rounded-[18px]">
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image
               src={project.image}
@@ -477,7 +475,7 @@ function ProjectCard({ project }: { project: Project }) {
               draggable={false}
             />
           </div>
-        </div>
+        </a>
 
         <span className="mt-5 block text-[var(--tiny-font-size)] font-bold text-primary">
           {project.category}
@@ -487,19 +485,13 @@ function ProjectCard({ project }: { project: Project }) {
           id={`project-${project.id}`}
           className="mt-1 text-[var(--h4-font-size)] font-bold text-title"
         >
-          {project.href ? (
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              draggable={false}
-              className="transition-colors hover:text-primary"
-            >
-              {project.title}
-            </a>
-          ) : (
-            project.title
-          )}
+          <a
+            href={caseStudyHref}
+            draggable={false}
+            className="transition-colors hover:text-primary"
+          >
+            {project.title}
+          </a>
         </h3>
 
         <p className="mt-4 line-clamp-4 text-[var(--small-font-size)] leading-relaxed text-text">
@@ -529,7 +521,27 @@ function ProjectCard({ project }: { project: Project }) {
               <path d="M13 6l6 6-6 6" />
             </svg>
           </a>
-        ) : null}
+        ) : (
+          <a
+            href={caseStudyHref}
+            className="project-visit mt-5"
+            aria-label={`Read ${project.title} case study`}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="project-visit__icon"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <path d="M5 12h14" />
+              <path d="M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        )}
       </article>
     </li>
   );

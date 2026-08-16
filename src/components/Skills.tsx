@@ -157,7 +157,11 @@ export function Skills() {
     <section id="skills" className="section scroll-mt-8">
       <div className="section__inner">
         <Reveal>
-          <SectionHeading eyebrow="Professional Skills" title="My Talent" />
+          <SectionHeading
+            eyebrow="Professional Skills"
+            title="My Talent"
+            description="The tools I use as a Full Stack Developer in Kerala: React, Next.js, TypeScript, Node.js, GraphQL, Prisma, PostgreSQL, and Tailwind CSS."
+          />
         </Reveal>
 
         {reduceMotion ? (

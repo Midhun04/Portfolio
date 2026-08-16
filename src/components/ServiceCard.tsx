@@ -120,7 +120,7 @@ export function ServiceCard({
       <img
         className="service-card__image"
         src={service.image}
-        alt=""
+        alt={service.imageAlt}
         loading={index < 2 ? "eager" : "lazy"}
         decoding="async"
       />

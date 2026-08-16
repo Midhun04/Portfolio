@@ -92,8 +92,8 @@ export function Hero() {
               Download CV
             </a>
             <span className="hero-cta__line" aria-hidden />
-            <a href="/#skills" className="hero-cta__link">
-              My Skills
+            <a href="/#work" className="hero-cta__link">
+              My Work
             </a>
           </div>
         </div>
