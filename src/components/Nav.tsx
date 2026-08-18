@@ -36,19 +36,18 @@ export function Nav() {
           <HeroEyes />
         </a>
 
-        <div className="site-nav__end">
-          <ThemeToggle className="site-nav__theme" />
-          <PillNav
-            items={nav}
-            activeHref={activeHref}
-            ease="power2.easeOut"
-            baseColor="var(--title-color)"
-            pillColor="var(--bg-color)"
-            hoveredPillTextColor="var(--bg-color)"
-            pillTextColor="var(--title-color)"
-            initialLoadAnimation
-          />
-        </div>
+        <PillNav
+          items={nav}
+          activeHref={activeHref}
+          ease="power2.easeOut"
+          baseColor="var(--title-color)"
+          pillColor="var(--bg-color)"
+          hoveredPillTextColor="var(--bg-color)"
+          pillTextColor="var(--title-color)"
+          initialLoadAnimation
+        />
+
+        <ThemeToggle className="site-nav__theme" />
       </div>
     </header>
   );
