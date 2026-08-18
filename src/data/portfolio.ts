@@ -70,7 +70,7 @@ export const portfolio = {
     siteUrl: "https://midhundas.vercel.app",
   },
   nav: [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "/#home" },
     { label: "Services", href: "/#services" },
     { label: "Skills", href: "/#skills" },
     { label: "Portfolio", href: "/#work" },
